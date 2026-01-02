@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library - YouTube Client</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .playlist-video-item {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .playlist-video-item img {
+            width: 120px;
+            height: 68px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .playlist-video-details {
+            flex: 1;
+        }
+        .playlist-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .rating-stars {
+            color: gold;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .toolbar input {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <a href="search.html" class="logo" style="margin-left: 0;">YouTube Client</a>
+            <nav>
+                <a href="search.html">Search</a>
+                <a href="playlists.html" style="text-decoration: underline;">My Library</a>
+            </nav>
+        </div>
+        <div class="user-info"></div>
+    </header>
+
+    <main>
+        <div class="playlist-container">
+            <div class="sidebar">
+                <h2>My Library</h2>
+                <button id="newPlaylistBtn" style="width: 100%; margin-bottom: 10px;">+ New Playlist</button>
+                <button id="playPlaylistBtn" style="width: 100%; margin-bottom: 20px; background-color: #333;" disabled>Play Playlist</button>
+                
+                <div id="playlistList">
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div id="noSelection" style="text-align: center; margin-top: 50px; color: #888;">
+                    <h3>Select a playlist from the list.</h3>
+                </div>
+
+                <div id="playlistContent" style="display: none;">
+                    <div class="toolbar">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <h2 id="currentPlaylistTitle" style="margin: 0;">Playlist Name</h2>
+                            <button id="deletePlaylistBtn" style="background: red; font-size: 0.8em; padding: 5px 10px;">Delete Playlist</button>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="filterInput" placeholder="Filter videos...">
+                            <select id="sortSelect">
+                                <option value="default">Sort by</option>
+                                <option value="az">Name (A-Z)</option>
+                                <option value="rating">Rating</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="videosList">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="createPlaylistModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <span class="close" id="closeCreateModal">&times;</span>
+            <h3>Create New Playlist</h3>
+            <input type="text" id="createPlaylistName" placeholder="Playlist Name" style="width: 100%; padding: 10px; margin: 10px 0;">
+            <button id="confirmCreatePlaylist" style="width: 100%;">Create</button>
+        </div>
+    </div>
+
+    <div id="playerModal" class="modal">
+        <div class="modal-content" style="background: black; padding: 0; width: 80%; max-width: 800px;">
+            <span class="close" style="color: white; padding: 10px; position: absolute; right: 0; top: 0; z-index: 10;">&times;</span>
+            <div class="video-player-container" id="playerContainer"></div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="playlists.js"></script>
+</body>
+</html>
+

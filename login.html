@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - YouTube Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">YouTube Client</a>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <h2 style="text-align: center;">Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <div id="loginError" class="error-message"></div>
+
+                <button type="submit" style="width: 100%; margin-top: 10px;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">
+                New here? <a href="register.html" style="color: #cc0000; margin: 0;">Create an account</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="utils.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
+

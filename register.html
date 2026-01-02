@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - YouTube Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">YouTube Client</a>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <h2 style="text-align: center;">Create Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="username">Username *</label>
+                    <input type="text" id="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUrl">Profile Image URL</label>
+                    <input type="url" id="imageUrl" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" required>
+                    <small style="color: #666; font-size: 0.8em;">Min 6 chars, 1 letter, 1 number, 1 special char</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+
+                <div id="registerError" class="error-message"></div>
+
+                <button type="submit" style="width: 100%; margin-top: 10px;">Register</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">
+                Already have an account? <a href="login.html" style="color: #cc0000; margin: 0;">Login</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="utils.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>
+

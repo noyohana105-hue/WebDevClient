@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - YouTube Client</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 20px auto;
+            gap: 10px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .video-player-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <a href="search.html" class="logo" style="margin-left: 0;">YouTube Client</a>
+            <nav>
+                <a href="search.html" style="text-decoration: underline;">Search</a>
+                <a href="playlists.html">My Library</a>
+            </nav>
+        </div>
+        <div class="user-info">
+        </div>
+    </header>
+
+    <main>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for videos...">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="searchResults" class="video-grid">
+        </div>
+    </main>
+
+    <div id="playerModal" class="modal">
+        <div class="modal-content" style="background: black; padding: 0; width: 80%; max-width: 800px;">
+            <span class="close" style="color: white; padding: 10px; position: absolute; right: 0; top: 0; z-index: 10;">&times;</span>
+            <div class="video-player-container" id="playerContainer">
+            </div>
+        </div>
+    </div>
+
+    <div id="playlistModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closePlaylistModal">&times;</span>
+            <h2>Add to Playlist</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <label>Select existing playlist:</label>
+                <select id="playlistSelect" style="width: 100%; padding: 8px; margin-top: 5px;">
+                    <option value="">-- Select Playlist --</option>
+                </select>
+            </div>
+            
+            <div style="text-align: center; margin: 10px 0;">- OR -</div>
+            
+            <div style="margin-bottom: 20px;">
+                <label>Create new playlist:</label>
+                <div style="display: flex; gap: 10px; margin-top: 5px;">
+                    <input type="text" id="newPlaylistName" placeholder="Playlist Name">
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button id="saveToPlaylistBtn">Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toast" style="visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 2px; padding: 16px; position: fixed; z-index: 1001; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 17px;">
+        Saved to playlist! <a href="playlists.html" style="color: #4CAF50; margin-left: 10px;">Go to Library</a>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>
+

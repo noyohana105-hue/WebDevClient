@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Client - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">YouTube Client</div>
+        <div class="user-info">
+        </div>
+    </header>
+
+    <main style="text-align: center; margin-top: 50px;">
+        <h1>Welcome to YouTube Client Project</h1>
+        
+        <div class="student-info" style="margin: 30px 0; padding: 20px; background: white; border-radius: 8px; display: inline-block;">
+            <h2>Student Details</h2>
+            <p><strong>Name:</strong> [noy ohana]</p>
+            <p><strong>ID:</strong> [206438269]</p>
+            
+            <div style="margin-top: 20px;">
+                <a href="https://github.com/YOUR_GITHUB" target="_blank" style="color: #cc0000; display: block; margin: 5px;">GitHub Repository</a>
+                <a href="#" style="color: #cc0000; display: block; margin: 5px;">Live Demo</a>
+            </div>
+        </div>
+
+        <div class="auth-links" style="margin-top: 30px;">
+            <a href="login.html"><button>Login</button></a>
+            <a href="register.html"><button style="background-color: #333; margin-left: 10px;">Register</button></a>
+        </div>
+    </main>
+
+    <script src="utils.js"></script>
+    <script>
+        const user = getCurrentUser();
+        if (user) {
+             document.querySelector('.auth-links').innerHTML = `
+                <a href="search.html"><button>Go to Search</button></a>
+             `;
+             updateHeader();
+        }
+    </script>
+</body>
+</html>
+
